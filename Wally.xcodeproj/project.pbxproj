@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		78C4AFC71C3112A7004064D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C4AFC61C3112A7004064D9 /* AppDelegate.swift */; };
-		78C4AFC91C3112A7004064D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C4AFC81C3112A7004064D9 /* Assets.xcassets */; };
-		78C4AFCC1C3112A7004064D9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78C4AFCA1C3112A7004064D9 /* MainMenu.xib */; };
+		78C4AFD41C312B50004064D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C4AFD31C312B50004064D9 /* AppDelegate.swift */; };
+		78C4AFD71C312B59004064D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C4AFD51C312B59004064D9 /* Assets.xcassets */; };
+		78C4AFD81C312B59004064D9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78C4AFD61C312B59004064D9 /* Info.plist */; };
+		78C4AFDB1C312BC6004064D9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78C4AFD91C312BC6004064D9 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		78C4AFC31C3112A7004064D9 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		78C4AFC61C3112A7004064D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		78C4AFC81C3112A7004064D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		78C4AFCB1C3112A7004064D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		78C4AFCD1C3112A7004064D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78C4AFC31C3112A7004064D9 /* Wally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wally.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C4AFD31C312B50004064D9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Wally/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		78C4AFD51C312B59004064D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Wally/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		78C4AFD61C312B59004064D9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Wally/Info.plist; sourceTree = SOURCE_ROOT; };
+		78C4AFDA1C312BC6004064D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Wally/Base.lproj/MainMenu.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,7 +35,7 @@
 		78C4AFBA1C3112A7004064D9 = {
 			isa = PBXGroup;
 			children = (
-				78C4AFC51C3112A7004064D9 /* test */,
+				78C4AFC51C3112A7004064D9 /* Wally */,
 				78C4AFC41C3112A7004064D9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -42,28 +43,29 @@
 		78C4AFC41C3112A7004064D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				78C4AFC31C3112A7004064D9 /* test.app */,
+				78C4AFC31C3112A7004064D9 /* Wally.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		78C4AFC51C3112A7004064D9 /* test */ = {
+		78C4AFC51C3112A7004064D9 /* Wally */ = {
 			isa = PBXGroup;
 			children = (
-				78C4AFC61C3112A7004064D9 /* AppDelegate.swift */,
-				78C4AFC81C3112A7004064D9 /* Assets.xcassets */,
-				78C4AFCA1C3112A7004064D9 /* MainMenu.xib */,
-				78C4AFCD1C3112A7004064D9 /* Info.plist */,
+				78C4AFD61C312B59004064D9 /* Info.plist */,
+				78C4AFD31C312B50004064D9 /* AppDelegate.swift */,
+				78C4AFD51C312B59004064D9 /* Assets.xcassets */,
+				78C4AFD91C312BC6004064D9 /* MainMenu.xib */,
 			);
+			name = Wally;
 			path = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		78C4AFC21C3112A7004064D9 /* test */ = {
+		78C4AFC21C3112A7004064D9 /* Wally */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 78C4AFD01C3112A7004064D9 /* Build configuration list for PBXNativeTarget "test" */;
+			buildConfigurationList = 78C4AFD01C3112A7004064D9 /* Build configuration list for PBXNativeTarget "Wally" */;
 			buildPhases = (
 				78C4AFBF1C3112A7004064D9 /* Sources */,
 				78C4AFC01C3112A7004064D9 /* Frameworks */,
@@ -73,9 +75,9 @@
 			);
 			dependencies = (
 			);
-			name = test;
+			name = Wally;
 			productName = test;
-			productReference = 78C4AFC31C3112A7004064D9 /* test.app */;
+			productReference = 78C4AFC31C3112A7004064D9 /* Wally.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -90,10 +92,11 @@
 				TargetAttributes = {
 					78C4AFC21C3112A7004064D9 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 7Y2GN43YN9;
 					};
 				};
 			};
-			buildConfigurationList = 78C4AFBE1C3112A7004064D9 /* Build configuration list for PBXProject "test" */;
+			buildConfigurationList = 78C4AFBE1C3112A7004064D9 /* Build configuration list for PBXProject "Wally" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -106,7 +109,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				78C4AFC21C3112A7004064D9 /* test */,
+				78C4AFC21C3112A7004064D9 /* Wally */,
 			);
 		};
 /* End PBXProject section */
@@ -116,8 +119,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78C4AFC91C3112A7004064D9 /* Assets.xcassets in Resources */,
-				78C4AFCC1C3112A7004064D9 /* MainMenu.xib in Resources */,
+				78C4AFD71C312B59004064D9 /* Assets.xcassets in Resources */,
+				78C4AFD81C312B59004064D9 /* Info.plist in Resources */,
+				78C4AFDB1C312BC6004064D9 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,17 +132,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78C4AFC71C3112A7004064D9 /* AppDelegate.swift in Sources */,
+				78C4AFD41C312B50004064D9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		78C4AFCA1C3112A7004064D9 /* MainMenu.xib */ = {
+		78C4AFD91C312BC6004064D9 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				78C4AFCB1C3112A7004064D9 /* Base */,
+				78C4AFDA1C312BC6004064D9 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -230,11 +234,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Wally/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = a.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hershal;
+				PRODUCT_NAME = Wally;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -242,18 +249,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Wally/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = a.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hershal;
+				PRODUCT_NAME = Wally;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		78C4AFBE1C3112A7004064D9 /* Build configuration list for PBXProject "test" */ = {
+		78C4AFBE1C3112A7004064D9 /* Build configuration list for PBXProject "Wally" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				78C4AFCE1C3112A7004064D9 /* Debug */,
@@ -262,7 +272,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		78C4AFD01C3112A7004064D9 /* Build configuration list for PBXNativeTarget "test" */ = {
+		78C4AFD01C3112A7004064D9 /* Build configuration list for PBXNativeTarget "Wally" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				78C4AFD11C3112A7004064D9 /* Debug */,
