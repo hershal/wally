@@ -39,7 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if timer != nil && timer!.valid {
             timer?.invalidate()
         }
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "timerFireMethod:", userInfo: nil, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(AppDelegate.timerFireMethod(_:)), userInfo: nil, repeats: false)
     }
 
     func timerFireMethod(timer: NSTimer) {
