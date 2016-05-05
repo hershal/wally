@@ -43,32 +43,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func timerFireMethod(timer: NSTimer) {
-        print(selectedColor?.hexString)
         guard let selectedColor = selectedColor else {
-            print("could not make image")
+            NSLog("could not make image")
             return
         }
+        NSLog(selectedColor.hexString)
+
         let filePath = NSURL(string: "file:///tmp/\(selectedColor.hexString).png")!
         let img = NSImage.imageWithColor(selectedColor)
         let cgimg = img.CGImageForProposedRect(nil, context: nil, hints: nil)!
         let rep = NSBitmapImageRep(CGImage: cgimg)
         let data = rep.representationUsingType(.NSPNGFileType, properties: [:])
 
-        print("saving to \(filePath.absoluteString)")
         do {
             try data?.writeToURL(filePath, options: .AtomicWrite)
-            print("wrote file: \(filePath.absoluteString)")
+            NSLog("wrote file: \(filePath.absoluteString)")
         } catch {
-            print(error)
+            NSLog("\(error)")
         }
 
         let screens = NSScreen.screens()
         for screen in screens! {
             do {
                 try NSWorkspace.sharedWorkspace().setDesktopImageURL(filePath, forScreen: screen, options: [:])
-                print("set screen")
+                NSLog("set screen")
             } catch {
-                print(error)
+                NSLog("\(error)")
             }
         }
     }
