@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		78C4AFD41C312B50004064D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C4AFD31C312B50004064D9 /* AppDelegate.swift */; };
 		78C4AFD71C312B59004064D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C4AFD51C312B59004064D9 /* Assets.xcassets */; };
-		78C4AFD81C312B59004064D9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78C4AFD61C312B59004064D9 /* Info.plist */; };
 		78C4AFDB1C312BC6004064D9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78C4AFD91C312BC6004064D9 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +86,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Hershal Bhave";
 				TargetAttributes = {
 					78C4AFC21C3112A7004064D9 = {
@@ -120,7 +119,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				78C4AFD71C312B59004064D9 /* Assets.xcassets in Resources */,
-				78C4AFD81C312B59004064D9 /* Info.plist in Resources */,
 				78C4AFDB1C312BC6004064D9 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +277,7 @@
 				78C4AFD21C3112A7004064D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
