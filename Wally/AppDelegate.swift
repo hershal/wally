@@ -49,40 +49,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         NSLog(selectedColor.hexString)
 
-        let filePath = NSURL(string: "file:///tmp/\(selectedColor.hexString).png")!
-        let img = NSImage.imageWithColor(selectedColor)
-        let cgimg = img.CGImageForProposedRect(nil, context: nil, hints: nil)!
-        let rep = NSBitmapImageRep(CGImage: cgimg)
-        let data = rep.representationUsingType(.NSPNGFileType, properties: [:])
+        let searchPath = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true).last!
+        let wallyDir = NSURL(fileURLWithPath: "\(searchPath)/Wally/")
+
+        let fm = NSFileManager.defaultManager()
+        var error: NSError?
+        if !wallyDir.checkResourceIsReachableAndReturnError(&error) {
+            do {
+                try fm.createDirectoryAtURL(wallyDir, withIntermediateDirectories: false, attributes: nil)
+            } catch {
+                NSLog("error: \(error)")
+            }
+        }
+        let filePath = NSURL(fileURLWithPath: "\(selectedColor.hexString).png", relativeToURL: wallyDir)
 
         do {
-            try data?.writeToURL(filePath, options: .AtomicWrite)
-            NSLog("wrote file: \(filePath.absoluteString)")
-        } catch {
-            NSLog("\(error)")
-        }
+            try PixelRenderer.render(selectedColor, toFile: filePath)
 
-        let screens = NSScreen.screens()
-        for screen in screens! {
+            let screen = NSScreen.mainScreen()!
             do {
                 try NSWorkspace.sharedWorkspace().setDesktopImageURL(filePath, forScreen: screen, options: [:])
                 NSLog("set screen")
             } catch {
                 NSLog("\(error)")
             }
+        } catch {
+            NSLog("error: \(error)")
         }
-    }
-}
-
-extension NSImage {
-    class func imageWithColor(color: NSColor) -> NSImage {
-        let img = NSImage.init(size: NSSize(width: 1.0, height: 1.0))
-        let path = NSBezierPath(rect: NSRect(x: 0, y: 0, width: 1, height: 1))
-        img.lockFocus()
-        color.set()
-        path.fill()
-        img.unlockFocus()
-        return img
     }
 }
 
