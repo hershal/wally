@@ -11,64 +11,64 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let colorPanel = NSColorPanel.sharedColorPanel()
-    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
-    var timer: NSTimer?
+    let colorPanel = NSColorPanel.shared
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    var timer: Timer?
     var selectedColor: NSColor?
 
     @IBOutlet weak var statusMenu: NSMenu!
-    @IBAction func quitClicked(sender: AnyObject) {
-        NSApplication.sharedApplication().terminate(self)
+    @IBAction func quitClicked(_ sender: AnyObject) {
+        NSApplication.shared.terminate(self)
     }
 
-    @IBAction func pickColor(sender: AnyObject) {
+    @IBAction func pickColor(_ sender: AnyObject) {
         colorPanel.makeKeyAndOrderFront(self)
-        NSApplication.sharedApplication().activateIgnoringOtherApps(true)
+        NSApplication.shared.activate(ignoringOtherApps: true)
     }
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         statusItem.title = "Hi"
         statusItem.menu = statusMenu
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
     }
 
-    override func changeColor(sender: AnyObject?) {
+    override func changeColor(_ sender: Any?) {
         selectedColor = colorPanel.color
-        if timer != nil && timer!.valid {
+        if timer != nil && timer!.isValid {
             timer?.invalidate()
         }
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(AppDelegate.timerFireMethod(_:)), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(AppDelegate.timerFireMethod(_:)), userInfo: nil, repeats: false)
     }
 
-    func timerFireMethod(timer: NSTimer) {
+    @objc func timerFireMethod(_ timer: Timer) {
         guard let selectedColor = selectedColor else {
             NSLog("could not make image")
             return
         }
         NSLog(selectedColor.hexString)
 
-        let searchPath = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true).last!
-        let wallyDir = NSURL(fileURLWithPath: "\(searchPath)/Wally/")
+        let searchPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true).last!
+        let wallyDir = URL(fileURLWithPath: "\(searchPath)/Wally/")
 
-        let fm = NSFileManager.defaultManager()
+        let fm = FileManager.default
         var error: NSError?
-        if !wallyDir.checkResourceIsReachableAndReturnError(&error) {
+        if !(wallyDir as NSURL).checkResourceIsReachableAndReturnError(&error) {
             do {
-                try fm.createDirectoryAtURL(wallyDir, withIntermediateDirectories: false, attributes: nil)
+                try fm.createDirectory(at: wallyDir, withIntermediateDirectories: false, attributes: nil)
             } catch {
                 NSLog("error: \(error)")
             }
         }
-        let filePath = NSURL(fileURLWithPath: "\(selectedColor.hexString).png", relativeToURL: wallyDir)
+        let filePath = URL(fileURLWithPath: "\(selectedColor.hexString).png", relativeTo: wallyDir)
 
         do {
             try PixelRenderer.render(selectedColor, toFile: filePath)
 
-            let screen = NSScreen.mainScreen()!
+            let screen = NSScreen.main!
             do {
-                try NSWorkspace.sharedWorkspace().setDesktopImageURL(filePath, forScreen: screen, options: [:])
+                try NSWorkspace.shared.setDesktopImageURL(filePath, for: screen, options: [:])
                 NSLog("set screen")
             } catch {
                 NSLog("\(error)")
@@ -86,5 +86,11 @@ extension NSColor {
         let blue = Int(round(self.blueComponent * 0xFF))
         let hexString = NSString(format: "%02X%02X%02X", red, green, blue)
         return hexString as String
+    }
+    var hsvString: String {
+        let h = self.hueComponent
+        let s = self.saturationComponent
+        let v = self.brightnessComponent
+        return "\(h), \(s), \(v)"
     }
 }
